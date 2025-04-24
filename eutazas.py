@@ -14,3 +14,13 @@ with open("utasadat.txt", "r", encoding="utf-8") as file:
         eutazasok.append(eutazas)
         eutazas = {}
 print(eutazasok)
+
+print()
+
+print("2. feladat")
+
+szamlalo = 0
+for eutazas in eutazasok:
+    szamlalo += 1
+print(f"A buszra {szamlalo} utas akart felszállni.")
+# print(f"A buszra {len(eutazasok)} utas akart felszállni.")
