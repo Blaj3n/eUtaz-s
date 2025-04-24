@@ -34,3 +34,15 @@ for utazas in eutazasok:
 
 print(f"A buszra {szamlalo} utas nem szállhatott fel.")
 
+print("4. feladat")
+busz_felszallok = []
+for i in range(0, 30):
+    szamlalo = 0
+    for egyelem in eutazasok:
+        if egyelem["megallo"] == i:
+            szamlalo += 1
+    busz_felszallok.append(szamlalo)
+for i in range(0, 30):
+    if busz_felszallok[i] == max(busz_felszallok):
+        print(f"A legtöbb utas ({max(busz_felszallok)} fő) a {i}. megállóban próbált felszállni.")
+        break
