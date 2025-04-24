@@ -46,3 +46,20 @@ for i in range(0, 30):
     if busz_felszallok[i] == max(busz_felszallok):
         print(f"A legtöbb utas ({max(busz_felszallok)} fő) a {i}. megállóban próbált felszállni.")
         break
+
+# kedvezménnyel (TAB, NYB)
+# ingyenes (NYP, RVS, GYK)
+print("5. feladat")
+kedv_szamlalo = 0
+ingy_szamlalo = 0
+for utazas in eutazasok:
+    if utazas["jegy_berlet"] != "JGY" and utazas["datum"] <= utazas["ervenyesseg_db"]:
+        if utazas["jegy_berlet"] in ["TAB", "NYB"]:
+            kedv_szamlalo += 1
+        elif utazas["jegy_berlet"] in ["NYP", "RVS", "GYK"]:
+            ingy_szamlalo += 1
+print(f"Ingyenesen utazók száma: {ingy_szamlalo} fő")
+print(f"A kedvezményesen utazók száma: {kedv_szamlalo} fő")
+
+
+
