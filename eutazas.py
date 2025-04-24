@@ -20,7 +20,17 @@ print()
 print("2. feladat")
 
 szamlalo = 0
-for eutazas in eutazasok:
+for utazas in eutazasok:
     szamlalo += 1
 print(f"A buszra {szamlalo} utas akart felszállni.")
 # print(f"A buszra {len(eutazasok)} utas akart felszállni.")
+
+print("3. feladat")
+szamlalo = 0
+for utazas in eutazasok:
+    if ((utazas["jegy_berlet"] == "JGY" and utazas["ervenyesseg_db"] == 0) or
+            (utazas["jegy_berlet"] != "JGY" and utazas["datum"] > utazas["ervenyesseg_db"])):
+        szamlalo += 1
+
+print(f"A buszra {szamlalo} utas nem szállhatott fel.")
+
