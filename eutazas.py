@@ -73,3 +73,11 @@ def napokszama(e1:int, h1:int, n1:int, e2:int, h2:int, n2:int) -> int:
 
 
 print(napokszama(1997, 9, 14, 2025, 4, 24))
+
+with open("figyelmeztetes.txt", "w", encoding="utf-8") as fajl:
+    for egy_utazas in eutazasok:
+        if egy_utazas["jegy_berlet"] != "JGY":
+            napszam_kul = napokszama(int(egy_utazas["datum"][:4]), int(egy_utazas["datum"][4:6]), int(egy_utazas["datum"][6:]), int(egy_utazas["ervenyesseg_db"][:4]), int(egy_utazas["ervenyesseg_db"][4:6]), int(egy_utazas["ervenyesseg_db"][6:]))
+            if 0 < napszam_kul < 4:
+                # print(egy_utazas["kartya"], egy_utazas["ervenyesseg_db"][:4]+ "-" + egy_utazas["ervenyesseg_db"][4:6] + "-" + egy_utazas["ervenyesseg_db"][6:], file=fajl)
+                fajl.write(f"{egy_utazas["kartya"]} {egy_utazas["ervenyesseg_db"][:4]}-{egy_utazas["ervenyesseg_db"][4:6]}-{egy_utazas["ervenyesseg_db"][6:]}\n")
